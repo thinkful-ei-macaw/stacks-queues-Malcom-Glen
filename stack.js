@@ -10,6 +10,10 @@ class Stack {
   constructor(values = []) {
     this.top = null;
 
+    // prevent creating values with non iterable data types
+    if (!Array.isArray(values) && typeof values !== 'string') return;
+
+    // iterates through values provided and pushes onto stack
     for (let value of values) {
       this.push(value);
     }
